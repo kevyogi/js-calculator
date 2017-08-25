@@ -8,7 +8,8 @@
 var calculatorModule = (function(){
   var memory = 0;
   var total = 0;
-  var calculator = {
+  
+  return calculator = {
     load: setTotal,
     getTotal: getTotal,
     add: add,
@@ -18,15 +19,15 @@ var calculatorModule = (function(){
     recallMemory: recallMemory,
     saveMemory: saveMemory,
     clearMemory: clearMemory
-  };
+  }
 
-  return calculator;
   /**
    * sets the `total` to the number passed in
    * @param  { Number } x
    * @return { Number }    current total
    */
    function setTotal(x){
+    validate(x);
     total = x;
     return total;
    }
@@ -44,6 +45,7 @@ var calculatorModule = (function(){
    * @param { Number } x
    */
    function add(x){
+    validate(x);
     total += x;
    }
 
@@ -52,6 +54,7 @@ var calculatorModule = (function(){
    * @param  { Number } x
    */
    function subtract(x){
+    validate(x);
     total -= x;
    }
 
@@ -60,6 +63,7 @@ var calculatorModule = (function(){
    * @param  { Number } x
    */
    function multiply(x){
+    validate(x);
     total *= x;
    }
 
@@ -68,6 +72,7 @@ var calculatorModule = (function(){
    * @param  { Number } x
    */
    function divide(x){
+    validate(x);
     total /= x;
    }
 
@@ -95,5 +100,10 @@ var calculatorModule = (function(){
   /**
    * Validation
    */
+   function validate(x){
+    if(typeof x !== "number"){
+      throw TypeError("Invalid input");
+    }
+   }
 
   });
