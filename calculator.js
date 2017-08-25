@@ -9,7 +9,7 @@ var calculatorModule = (function(){
   var memory = 0;
   var total = 0;
   
-  return calculator = {
+  var calculator = {
     load: setTotal,
     getTotal: getTotal,
     add: add,
@@ -19,7 +19,7 @@ var calculatorModule = (function(){
     recallMemory: recallMemory,
     saveMemory: saveMemory,
     clearMemory: clearMemory
-  }
+  };
 
   /**
    * sets the `total` to the number passed in
@@ -105,5 +105,7 @@ var calculatorModule = (function(){
       throw TypeError("Invalid input");
     }
    }
+
+   return calculator;
 
   });
